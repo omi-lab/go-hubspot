@@ -16,14 +16,14 @@ import (
 
 // StandardError struct for StandardError
 type StandardError struct {
-	Status      string                 `json:"status"`
-	Id          *string                `json:"id,omitempty"`
-	Category    ErrorCategory          `json:"category"`
+	Status string `json:"status"`
+	Id *string `json:"id,omitempty"`
+	Category ErrorCategory `json:"category"`
 	SubCategory map[string]interface{} `json:"subCategory,omitempty"`
-	Message     string                 `json:"message"`
-	Errors      []ErrorDetail          `json:"errors"`
-	Context     map[string][]string    `json:"context"`
-	Links       map[string]string      `json:"links"`
+	Message string `json:"message"`
+	Errors []ErrorDetail `json:"errors"`
+	Context map[string][]string `json:"context"`
+	Links map[string]string `json:"links"`
 }
 
 // NewStandardError instantiates a new StandardError object
@@ -321,3 +321,5 @@ func (v *NullableStandardError) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

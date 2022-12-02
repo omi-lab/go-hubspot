@@ -17,14 +17,14 @@ import (
 
 // BatchResponseSimplePublicObjectWithErrors struct for BatchResponseSimplePublicObjectWithErrors
 type BatchResponseSimplePublicObjectWithErrors struct {
-	Status      string               `json:"status"`
-	Results     []SimplePublicObject `json:"results"`
-	NumErrors   *int32               `json:"numErrors,omitempty"`
-	Errors      []StandardError      `json:"errors,omitempty"`
-	RequestedAt *time.Time           `json:"requestedAt,omitempty"`
-	StartedAt   time.Time            `json:"startedAt"`
-	CompletedAt time.Time            `json:"completedAt"`
-	Links       *map[string]string   `json:"links,omitempty"`
+	Status string `json:"status"`
+	Results []SimplePublicObject `json:"results"`
+	NumErrors *int32 `json:"numErrors,omitempty"`
+	Errors []StandardError `json:"errors,omitempty"`
+	RequestedAt *time.Time `json:"requestedAt,omitempty"`
+	StartedAt time.Time `json:"startedAt"`
+	CompletedAt time.Time `json:"completedAt"`
+	Links *map[string]string `json:"links,omitempty"`
 }
 
 // NewBatchResponseSimplePublicObjectWithErrors instantiates a new BatchResponseSimplePublicObjectWithErrors object
@@ -336,3 +336,5 @@ func (v *NullableBatchResponseSimplePublicObjectWithErrors) UnmarshalJSON(src []
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

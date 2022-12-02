@@ -16,8 +16,8 @@ import (
 
 // NextPage struct for NextPage
 type NextPage struct {
-	After string  `json:"after"`
-	Link  *string `json:"link,omitempty"`
+	After string `json:"after"`
+	Link *string `json:"link,omitempty"`
 }
 
 // NewNextPage instantiates a new NextPage object
@@ -140,3 +140,5 @@ func (v *NullableNextPage) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -16,7 +16,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/clarkmcc/go-hubspot"
+	"github.com/omi-lab/go-hubspot"
 	"net/url"
 	"os"
 	"reflect"

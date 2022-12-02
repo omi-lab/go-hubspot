@@ -16,9 +16,9 @@ import (
 
 // CollectionResponseWithTotalSimplePublicObjectForwardPaging struct for CollectionResponseWithTotalSimplePublicObjectForwardPaging
 type CollectionResponseWithTotalSimplePublicObjectForwardPaging struct {
-	Total   int32                `json:"total"`
+	Total int32 `json:"total"`
 	Results []SimplePublicObject `json:"results"`
-	Paging  *ForwardPaging       `json:"paging,omitempty"`
+	Paging *ForwardPaging `json:"paging,omitempty"`
 }
 
 // NewCollectionResponseWithTotalSimplePublicObjectForwardPaging instantiates a new CollectionResponseWithTotalSimplePublicObjectForwardPaging object
@@ -169,3 +169,5 @@ func (v *NullableCollectionResponseWithTotalSimplePublicObjectForwardPaging) Unm
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

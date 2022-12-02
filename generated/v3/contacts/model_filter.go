@@ -16,9 +16,9 @@ import (
 
 // Filter struct for Filter
 type Filter struct {
-	Value        *string  `json:"value,omitempty"`
-	Values       []string `json:"values,omitempty"`
-	PropertyName string   `json:"propertyName"`
+	Value *string `json:"value,omitempty"`
+	Values []string `json:"values,omitempty"`
+	PropertyName string `json:"propertyName"`
 	// null
 	Operator string `json:"operator"`
 }
@@ -206,3 +206,5 @@ func (v *NullableFilter) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

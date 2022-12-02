@@ -16,7 +16,7 @@ import (
 
 // PublicGdprDeleteInput struct for PublicGdprDeleteInput
 type PublicGdprDeleteInput struct {
-	ObjectId   string  `json:"objectId"`
+	ObjectId string `json:"objectId"`
 	IdProperty *string `json:"idProperty,omitempty"`
 }
 
@@ -140,3 +140,5 @@ func (v *NullablePublicGdprDeleteInput) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -17,7 +17,7 @@ import (
 // CollectionResponseAssociatedIdForwardPaging struct for CollectionResponseAssociatedIdForwardPaging
 type CollectionResponseAssociatedIdForwardPaging struct {
 	Results []AssociatedId `json:"results"`
-	Paging  *ForwardPaging `json:"paging,omitempty"`
+	Paging *ForwardPaging `json:"paging,omitempty"`
 }
 
 // NewCollectionResponseAssociatedIdForwardPaging instantiates a new CollectionResponseAssociatedIdForwardPaging object
@@ -140,3 +140,5 @@ func (v *NullableCollectionResponseAssociatedIdForwardPaging) UnmarshalJSON(src 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

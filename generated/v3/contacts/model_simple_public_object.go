@@ -17,13 +17,13 @@ import (
 
 // SimplePublicObject struct for SimplePublicObject
 type SimplePublicObject struct {
-	Id                    string                           `json:"id"`
-	Properties            map[string]string                `json:"properties"`
+	Id string `json:"id"`
+	Properties map[string]string `json:"properties"`
 	PropertiesWithHistory *map[string][]ValueWithTimestamp `json:"propertiesWithHistory,omitempty"`
-	CreatedAt             time.Time                        `json:"createdAt"`
-	UpdatedAt             time.Time                        `json:"updatedAt"`
-	Archived              *bool                            `json:"archived,omitempty"`
-	ArchivedAt            *time.Time                       `json:"archivedAt,omitempty"`
+	CreatedAt time.Time `json:"createdAt"`
+	UpdatedAt time.Time `json:"updatedAt"`
+	Archived *bool `json:"archived,omitempty"`
+	ArchivedAt *time.Time `json:"archivedAt,omitempty"`
 }
 
 // NewSimplePublicObject instantiates a new SimplePublicObject object
@@ -300,3 +300,5 @@ func (v *NullableSimplePublicObject) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

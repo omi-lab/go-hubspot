@@ -17,14 +17,14 @@ import (
 
 // SimplePublicObjectWithAssociations struct for SimplePublicObjectWithAssociations
 type SimplePublicObjectWithAssociations struct {
-	Id                    string                                     `json:"id"`
-	Properties            map[string]string                          `json:"properties"`
-	PropertiesWithHistory *map[string][]ValueWithTimestamp           `json:"propertiesWithHistory,omitempty"`
-	CreatedAt             time.Time                                  `json:"createdAt"`
-	UpdatedAt             time.Time                                  `json:"updatedAt"`
-	Archived              *bool                                      `json:"archived,omitempty"`
-	ArchivedAt            *time.Time                                 `json:"archivedAt,omitempty"`
-	Associations          *map[string]CollectionResponseAssociatedId `json:"associations,omitempty"`
+	Id string `json:"id"`
+	Properties map[string]string `json:"properties"`
+	PropertiesWithHistory *map[string][]ValueWithTimestamp `json:"propertiesWithHistory,omitempty"`
+	CreatedAt time.Time `json:"createdAt"`
+	UpdatedAt time.Time `json:"updatedAt"`
+	Archived *bool `json:"archived,omitempty"`
+	ArchivedAt *time.Time `json:"archivedAt,omitempty"`
+	Associations *map[string]CollectionResponseAssociatedId `json:"associations,omitempty"`
 }
 
 // NewSimplePublicObjectWithAssociations instantiates a new SimplePublicObjectWithAssociations object
@@ -336,3 +336,5 @@ func (v *NullableSimplePublicObjectWithAssociations) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

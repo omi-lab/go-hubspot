@@ -15,17 +15,16 @@ import (
 	"context"
 	"io/ioutil"
 	"net/http"
-
-	"github.com/clarkmcc/go-hubspot"
 	"net/url"
 )
+
 
 // GDPRApiService GDPRApi service
 type GDPRApiService service
 
 type ApiDeleteRequest struct {
-	ctx                   context.Context
-	ApiService            *GDPRApiService
+	ctx context.Context
+	ApiService *GDPRApiService
 	publicGdprDeleteInput *PublicGdprDeleteInput
 }
 
@@ -49,16 +48,16 @@ Permanently delete a contact and all associated content to follow GDPR. Use opti
 func (a *GDPRApiService) Delete(ctx context.Context) ApiDeleteRequest {
 	return ApiDeleteRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
 func (a *GDPRApiService) DeleteExecute(r ApiDeleteRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GDPRApiService.Delete")
@@ -96,12 +95,16 @@ func (a *GDPRApiService) DeleteExecute(r ApiDeleteRequest) (*http.Response, erro
 	localVarPostBody = r.publicGdprDeleteInput
 	if r.ctx != nil {
 		// API Key Authentication
-		if auth, ok := r.ctx.Value(hubspot.ContextKey).(hubspot.Authorizer); ok {
-			auth.Apply(hubspot.AuthorizationRequest{
-				QueryParams: localVarQueryParams,
-				FormParams:  localVarFormParams,
-				Headers:     localVarHeaderParams,
-			})
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["hapikey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarQueryParams.Add("hapikey", key)
+			}
 		}
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
@@ -126,13 +129,13 @@ func (a *GDPRApiService) DeleteExecute(r ApiDeleteRequest) (*http.Response, erro
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		var v Error
-		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarHTTPResponse, newErr
-		}
-		newErr.model = v
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
 

@@ -16,10 +16,10 @@ import (
 
 // BatchReadInputSimplePublicObjectId struct for BatchReadInputSimplePublicObjectId
 type BatchReadInputSimplePublicObjectId struct {
-	Properties            []string               `json:"properties"`
-	PropertiesWithHistory []string               `json:"propertiesWithHistory"`
-	IdProperty            *string                `json:"idProperty,omitempty"`
-	Inputs                []SimplePublicObjectId `json:"inputs"`
+	Properties []string `json:"properties"`
+	PropertiesWithHistory []string `json:"propertiesWithHistory"`
+	IdProperty *string `json:"idProperty,omitempty"`
+	Inputs []SimplePublicObjectId `json:"inputs"`
 }
 
 // NewBatchReadInputSimplePublicObjectId instantiates a new BatchReadInputSimplePublicObjectId object
@@ -198,3 +198,5 @@ func (v *NullableBatchReadInputSimplePublicObjectId) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

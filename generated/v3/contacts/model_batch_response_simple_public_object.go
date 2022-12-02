@@ -17,12 +17,12 @@ import (
 
 // BatchResponseSimplePublicObject struct for BatchResponseSimplePublicObject
 type BatchResponseSimplePublicObject struct {
-	Status      string               `json:"status"`
-	Results     []SimplePublicObject `json:"results"`
-	RequestedAt *time.Time           `json:"requestedAt,omitempty"`
-	StartedAt   time.Time            `json:"startedAt"`
-	CompletedAt time.Time            `json:"completedAt"`
-	Links       *map[string]string   `json:"links,omitempty"`
+	Status string `json:"status"`
+	Results []SimplePublicObject `json:"results"`
+	RequestedAt *time.Time `json:"requestedAt,omitempty"`
+	StartedAt time.Time `json:"startedAt"`
+	CompletedAt time.Time `json:"completedAt"`
+	Links *map[string]string `json:"links,omitempty"`
 }
 
 // NewBatchResponseSimplePublicObject instantiates a new BatchResponseSimplePublicObject object
@@ -264,3 +264,5 @@ func (v *NullableBatchResponseSimplePublicObject) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

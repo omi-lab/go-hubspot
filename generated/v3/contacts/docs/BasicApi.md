@@ -148,7 +148,7 @@ Name | Type | Description  | Notes
 
 ## GetByID
 
-> SimplePublicObjectWithAssociations GetByID(ctx, contactId).Properties(properties).PropertiesWithHistory(propertiesWithHistory).Associations(associations).Archived(archived).Execute()
+> SimplePublicObjectWithAssociations GetByID(ctx, contactId).Properties(properties).PropertiesWithHistory(propertiesWithHistory).Associations(associations).Archived(archived).IdProperty(idProperty).Execute()
 
 Read
 
@@ -172,10 +172,11 @@ func main() {
     propertiesWithHistory := []string{"Inner_example"} // []string | A comma separated list of the properties to be returned along with their history of previous values. If any of the specified properties are not present on the requested object(s), they will be ignored. (optional)
     associations := []string{"Inner_example"} // []string | A comma separated list of object types to retrieve associated IDs for. If any of the specified associations do not exist, they will be ignored. (optional)
     archived := true // bool | Whether to return only results that have been archived. (optional) (default to false)
+    idProperty := "idProperty_example" // string | The name of a property whose values are unique for this object type (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.BasicApi.GetByID(context.Background(), contactId).Properties(properties).PropertiesWithHistory(propertiesWithHistory).Associations(associations).Archived(archived).Execute()
+    resp, r, err := apiClient.BasicApi.GetByID(context.Background(), contactId).Properties(properties).PropertiesWithHistory(propertiesWithHistory).Associations(associations).Archived(archived).IdProperty(idProperty).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `BasicApi.GetByID``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -205,6 +206,7 @@ Name | Type | Description  | Notes
  **propertiesWithHistory** | **[]string** | A comma separated list of the properties to be returned along with their history of previous values. If any of the specified properties are not present on the requested object(s), they will be ignored. | 
  **associations** | **[]string** | A comma separated list of object types to retrieve associated IDs for. If any of the specified associations do not exist, they will be ignored. | 
  **archived** | **bool** | Whether to return only results that have been archived. | [default to false]
+ **idProperty** | **string** | The name of a property whose values are unique for this object type | 
 
 ### Return type
 

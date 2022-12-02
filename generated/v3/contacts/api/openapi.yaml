@@ -480,6 +480,15 @@ paths:
           default: false
           type: boolean
         style: form
+      - description: The name of a property whose values are unique for this object
+          type
+        explode: true
+        in: query
+        name: idProperty
+        required: false
+        schema:
+          type: string
+        style: form
       responses:
         "200":
           content:

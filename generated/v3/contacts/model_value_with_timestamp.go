@@ -17,12 +17,12 @@ import (
 
 // ValueWithTimestamp struct for ValueWithTimestamp
 type ValueWithTimestamp struct {
-	Value           string    `json:"value"`
-	Timestamp       time.Time `json:"timestamp"`
-	SourceType      string    `json:"sourceType"`
-	SourceId        *string   `json:"sourceId,omitempty"`
-	SourceLabel     *string   `json:"sourceLabel,omitempty"`
-	UpdatedByUserId *int32    `json:"updatedByUserId,omitempty"`
+	Value string `json:"value"`
+	Timestamp time.Time `json:"timestamp"`
+	SourceType string `json:"sourceType"`
+	SourceId *string `json:"sourceId,omitempty"`
+	SourceLabel *string `json:"sourceLabel,omitempty"`
+	UpdatedByUserId *int32 `json:"updatedByUserId,omitempty"`
 }
 
 // NewValueWithTimestamp instantiates a new ValueWithTimestamp object
@@ -271,3 +271,5 @@ func (v *NullableValueWithTimestamp) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

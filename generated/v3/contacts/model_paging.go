@@ -16,7 +16,7 @@ import (
 
 // Paging struct for Paging
 type Paging struct {
-	Next *NextPage     `json:"next,omitempty"`
+	Next *NextPage `json:"next,omitempty"`
 	Prev *PreviousPage `json:"prev,omitempty"`
 }
 
@@ -147,3 +147,5 @@ func (v *NullablePaging) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

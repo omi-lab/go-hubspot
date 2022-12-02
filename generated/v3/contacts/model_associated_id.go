@@ -16,7 +16,7 @@ import (
 
 // AssociatedId struct for AssociatedId
 type AssociatedId struct {
-	Id   string `json:"id"`
+	Id string `json:"id"`
 	Type string `json:"type"`
 }
 
@@ -133,3 +133,5 @@ func (v *NullableAssociatedId) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

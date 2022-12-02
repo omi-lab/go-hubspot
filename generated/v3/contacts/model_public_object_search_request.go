@@ -17,11 +17,11 @@ import (
 // PublicObjectSearchRequest struct for PublicObjectSearchRequest
 type PublicObjectSearchRequest struct {
 	FilterGroups []FilterGroup `json:"filterGroups"`
-	Sorts        []string      `json:"sorts"`
-	Query        *string       `json:"query,omitempty"`
-	Properties   []string      `json:"properties"`
-	Limit        int32         `json:"limit"`
-	After        int32         `json:"after"`
+	Sorts []string `json:"sorts"`
+	Query *string `json:"query,omitempty"`
+	Properties []string `json:"properties"`
+	Limit int32 `json:"limit"`
+	After int32 `json:"after"`
 }
 
 // NewPublicObjectSearchRequest instantiates a new PublicObjectSearchRequest object
@@ -256,3 +256,5 @@ func (v *NullablePublicObjectSearchRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

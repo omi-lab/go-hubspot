@@ -17,7 +17,7 @@ import (
 // SimplePublicObjectBatchInput struct for SimplePublicObjectBatchInput
 type SimplePublicObjectBatchInput struct {
 	Properties map[string]string `json:"properties"`
-	Id         string            `json:"id"`
+	Id string `json:"id"`
 }
 
 // NewSimplePublicObjectBatchInput instantiates a new SimplePublicObjectBatchInput object
@@ -133,3 +133,5 @@ func (v *NullableSimplePublicObjectBatchInput) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

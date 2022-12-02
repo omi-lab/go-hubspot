@@ -17,7 +17,7 @@ import (
 // CollectionResponseSimplePublicObjectWithAssociationsForwardPaging struct for CollectionResponseSimplePublicObjectWithAssociationsForwardPaging
 type CollectionResponseSimplePublicObjectWithAssociationsForwardPaging struct {
 	Results []SimplePublicObjectWithAssociations `json:"results"`
-	Paging  *ForwardPaging                       `json:"paging,omitempty"`
+	Paging *ForwardPaging `json:"paging,omitempty"`
 }
 
 // NewCollectionResponseSimplePublicObjectWithAssociationsForwardPaging instantiates a new CollectionResponseSimplePublicObjectWithAssociationsForwardPaging object
@@ -140,3 +140,5 @@ func (v *NullableCollectionResponseSimplePublicObjectWithAssociationsForwardPagi
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+
