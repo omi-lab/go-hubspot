@@ -22,6 +22,7 @@ The clients are broken out into their own packages by name and categorized by AP
 ```go
 import "github.com/omi-lab/go-hubspot/generated/v3/contacts"
 
+
 client := contacts.NewAPIClient(contacts.NewConfiguration())
 
 input := contacts.SimplePublicObjectInput{
