@@ -257,7 +257,16 @@ paths:
   /crm/v3/objects/deals/batch/update:
     post:
       operationId: BatchUpdate
-      parameters: []
+      parameters:
+      - description: The name of a property whose values are unique for this object
+          type
+        explode: true
+        in: query
+        name: idProperty
+        required: false
+        schema:
+          type: string
+        style: form
       requestBody:
         content:
           application/json:

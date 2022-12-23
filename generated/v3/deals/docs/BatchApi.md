@@ -205,7 +205,7 @@ Name | Type | Description  | Notes
 
 ## BatchUpdate
 
-> BatchResponseSimplePublicObject BatchUpdate(ctx).BatchInputSimplePublicObjectBatchInput(batchInputSimplePublicObjectBatchInput).Execute()
+> BatchResponseSimplePublicObject BatchUpdate(ctx).BatchInputSimplePublicObjectBatchInput(batchInputSimplePublicObjectBatchInput).IdProperty(idProperty).Execute()
 
 Update a batch of deals
 
@@ -223,10 +223,11 @@ import (
 
 func main() {
     batchInputSimplePublicObjectBatchInput := *openapiclient.NewBatchInputSimplePublicObjectBatchInput([]openapiclient.SimplePublicObjectBatchInput{*openapiclient.NewSimplePublicObjectBatchInput(map[string]string{"key": "Inner_example"}, "Id_example")}) // BatchInputSimplePublicObjectBatchInput | 
+    idProperty := "idProperty_example" // string | The name of a property whose values are unique for this object type (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.BatchApi.BatchUpdate(context.Background()).BatchInputSimplePublicObjectBatchInput(batchInputSimplePublicObjectBatchInput).Execute()
+    resp, r, err := apiClient.BatchApi.BatchUpdate(context.Background()).BatchInputSimplePublicObjectBatchInput(batchInputSimplePublicObjectBatchInput).IdProperty(idProperty).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `BatchApi.BatchUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -248,6 +249,7 @@ Other parameters are passed through a pointer to a apiBatchUpdateRequest struct 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **batchInputSimplePublicObjectBatchInput** | [**BatchInputSimplePublicObjectBatchInput**](BatchInputSimplePublicObjectBatchInput.md) |  | 
+ **idProperty** | **string** | The name of a property whose values are unique for this object type | 
 
 ### Return type
 
