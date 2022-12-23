@@ -351,7 +351,19 @@
         "tags": ["Batch"],
         "summary": "Update a batch of contacts",
         "operationId": "BatchUpdate",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "idProperty",
+            "in": "query",
+            "description": "The name of a property whose values are unique for this object type",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
